@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>당신만의 헬퍼 | 취업 고민 끝</title>
+  <meta name="description" content="취업 준비, 자소서, 면접까지. 하루 2명 한정 집중 코칭. 당신의 이야기로 합격을 만듭니다.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter','Noto Sans KR', 'system-ui', 'Apple SD Gothic Neo', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif']
+          },
+          colors: {
+            ink: { 50:'#F6F8FA',100:'#EAEFF4',200:'#D1DAE6',300:'#A6B4CB',400:'#7A90B0',500:'#5B6F90',600:'#4A5975',700:'#3A465C',800:'#262F40',900:'#0D1117' },
+            brand: { 500:'#14B8A6' },
+            sky:   { 500:'#0EA5E9' },
+            accent:{ 500:'#F59E0B' },
+            rose:  { 500:'#F43F5E' }
+          },
+          boxShadow: {
+            soft: '0 10px 30px rgba(2,6,23,0.35)',
+            glow: '0 10px 25px rgba(14,165,233,0.25)',
+            badge:'0 0 0 6px rgba(245,158,11,0.15), 0 10px 25px rgba(245,158,11,0.25)'
+          },
+          backgroundImage: {
+            'hero-grid': 'radial-gradient(circle at 20% 10%, rgba(14,165,233,0.14), transparent 35%), radial-gradient(circle at 80% 30%, rgba(20,184,166,0.16), transparent 40%), radial-gradient(circle at 40% 80%, rgba(245,158,11,0.10), transparent 40%)',
+            'lantern': 'radial-gradient(ellipse at center, rgba(245,158,11,0.35) 0%, rgba(245,158,11,0.08) 40%, transparent 60%)'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { background: #0d1117; color: #c9d1d9; }
+    .text-gradient { background: linear-gradient(90deg, #14B8A6, #0EA5E9); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .glass { backdrop-filter: blur(8px); background: linear-gradient(180deg, rgba(22,27,34,0.75), rgba(22,27,34,0.55)); border: 1px solid rgba(48,54,61,0.6); }
+    .card { background:#161b22; border:1px solid #30363d; border-radius: 16px;}
+    .ring-focus:focus { outline: none; box-shadow: 0 0 0 3px rgba(14,165,233,0.45); }
+    .step-rail { background: linear-gradient(90deg, rgba(20,184,166,0.35), rgba(14,165,233,0.35)); }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+  </style>
+</head>
+<body class="font-sans antialiased selection:bg-sky-500 selection:text-white">
+  <!-- SVG DEFINITIONS: Lantern Logo -->
+  <svg width="0" height="0" class="absolute">
+    <defs>
+      <linearGradient id="lg1" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#F59E0B"/><stop offset="1" stop-color="#14B8A6"/>
+      </linearGradient>
+      <linearGradient id="lg2" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#0EA5E9"/><stop offset="1" stop-color="#14B8A6"/>
+      </linearGradient>
+      <symbol id="LanternLogo" viewBox="0 0 64 64">
+        <g>
+          <rect x="28" y="6" width="8" height="6" rx="2" fill="url(#lg2)"/>
+          <rect x="18" y="16" width="28" height="36" rx="14" fill="rgba(20,184,166,0.08)" stroke="url(#lg1)" stroke-width="2"/>
+          <path d="M32 22c6 4 8 9 8 14s-5 10-8 12c-3-2-8-7-8-12s2-10 8-14z" fill="#FDE68A"/>
+          <circle cx="32" cy="10" r="3" fill="#FBBF24"/>
+        </g>
+      </symbol>
+    </defs>
+  </svg>
+
+  <!-- NAV -->
+  <header class="sticky top-0 z-50 backdrop-blur bg-black/30 border-b border-white/10">
+    <nav class="max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between h-14">
+      <a href="#home" class="flex items-center gap-2" aria-label="홈으로 이동">
+        <svg class="w-8 h-8 drop-shadow" aria-hidden="true"><use href="#LanternLogo"></use></svg>
+        <span class="text-white font-bold">당신만의 헬퍼</span>
+      </a>
+      <ul class="hidden md:flex items-center gap-6 text-sm text-gray-300">
+        <li><a href="#services" class="hover:text-white">서비스</a></li>
+        <li><a href="#process" class="hover:text-white">진행 과정</a></li>
+        <li><a href="#faq" class="hover:text-white">FAQ</a></li>
+      </ul>
+      <a href="#cta" class="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-brand-500 to-sky-500 text-white font-semibold shadow-glow hover:shadow-soft ring-focus">
+        지금 문의하기
+      </a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section id="home" class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-hero-grid opacity-80"></div>
+    <div class="max-w-7xl mx-auto px-4 md:px-6 pt-14 pb-24 md:pt-20 md:pb-36 relative">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <div class="flex items-center gap-2">
+            <svg class="w-6 h-6"><use href="#LanternLogo"></use></svg>
+            <p class="inline-flex px-3 py-1 rounded-full bg-white/10 border border-white/10 text-xs tracking-wide text-gray-200">하루 2명 한정 · 집중 코칭</p>
+          </div>
+          <!-- Split headline, slightly smaller -->
+          <h1 class="mt-4 text-3xl md:text-5xl font-black leading-[1.1] space-y-1">
+            <span class="block">당신의 이야기속에서</span>
+            <span class="block text-gradient">가장 빛나는 길을 비춰드립니다.</span>
+          </h1>
+
+          <p class="mt-5 text-base md:text-lg text-gray-300 leading-relaxed">
+            지쳐있는 당신의 마음을 누구보다 잘 압니다. 이제 혼자 고민하지 마세요. <br class="hidden md:inline" />
+            N년차 현직 선배가 <b>'당신만의 헬퍼'</b>가 되어드릴게요.
+          </p>
+
+          <!-- 24h badge stronger emphasis -->
+        
+
+          <div class="mt-6 flex flex-col sm:flex-row gap-3">
+            <a href="#services" class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-white text-ink-900 font-semibold hover:opacity-90 ring-focus">
+              서비스 보기
+            </a>
+            <a href="#cta" class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r from-brand-500 to-sky-500 text-white font-semibold shadow-glow ring-focus">
+              무료 커피챗 예약
+            </a>
+          </div>
+
+          <ul class="mt-6 flex flex-wrap gap-4 text-sm text-gray-400">
+            <li class="flex items-center gap-2"><span>✓</span> 24시간 내 초안 발송</li>
+            <li class="flex items-center gap-2"><span>✓</span> 자소서 무제한 피드백</li>
+            <li class="flex items-center gap-2"><span>✓</span> 면접 스크립트 & 영상 코칭</li>
+          </ul>
+        </div>
+
+        <!-- Visual card with lantern glow (logo used as motif) -->
+        <div class="relative">
+          <div class="glass rounded-2xl p-6 md:p-8 shadow-soft relative overflow-hidden">
+            <div class="absolute inset-0 bg-lantern pointer-events-none"></div>
+            
+
+            <blockquote class="text-xl md:text-2xl font-semibold text-white leading-relaxed">
+              “어디서부터 다시 시작해야 할지, 모든 것이 <span class='text-gradient font-bold'>막막</span>하기만 했습니다.”
+            </blockquote>
+            <p class="mt-4 text-gray-300">
+              유튜브와 현직자 인터뷰는 넘쳐났지만, 정작 <b>내 상황</b>에 맞는 현실적인 조언을 찾기란 쉽지 않았습니다.
+            </p>
+
+            <!-- Dialog bubbles with diverse avatars/roles -->
+            <div class="mt-6 grid gap-3">
+              <div class="flex items-start gap-3">
+                <div class="w-9 h-9 rounded-full bg-brand-500/20 grid place-content-center text-brand-200">🧑‍🎓</div>
+                <div class="card px-4 py-3 text-sm text-gray-200">
+                  <span class="inline-flex items-center text-xs text-gray-400 mb-1">고3 · 입시 준비</span><br/>
+                  자소서는 도대체 어떻게 쓰는 걸까?
+                </div>
+              </div>
+              <div class="flex items-start gap-3 justify-end">
+                <div class="card px-4 py-3 text-sm text-gray-200">
+                  <span class="inline-flex items-center text-xs text-gray-400 mb-1">대학생 · 인턴 준비</span><br/>
+                  직무 관련 경험이 없는 것 같은데 어떡하지…
+                </div>
+                <div class="w-9 h-9 rounded-full bg-sky-500/20 grid place-content-center text-sky-200">🎓</div>
+              </div>
+              <div class="flex items-start gap-3 justify-end">
+                <div class="card px-4 py-3 text-sm text-gray-200">
+                  <span class="inline-flex items-center text-xs text-gray-400 mb-1">취준생 · 첫 취업</span><br/>
+                  어떤 직무가 정말 나랑 맞을까?
+                </div>
+                <div class="w-9 h-9 rounded-full bg-sky-500/20 grid place-content-center text-sky-200">🧑‍💼</div>
+              </div>
+              <div class="flex items-start gap-3">
+                <div class="w-9 h-9 rounded-full bg-brand-500/20 grid place-content-center text-brand-200">🔁</div>
+                <div class="card px-4 py-3 text-sm text-gray-200">
+                  <span class="inline-flex items-center text-xs text-gray-400 mb-1">커리어 전환 · 재도전</span><br/>
+                  이 직무의 5년 뒤 커리어패스는 어떻게 될까?
+                </div>
+              </div>
+            </div>
+
+            <p class="mt-5 text-gray-300">
+              제가 원했던 건 정답이 아니라 <b>내 이야기를 온전히 들어주는 든든한 선배</b>였습니다.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROMISE -->
+  <section class="py-10">
+    <div class="max-w-7xl mx-auto px-4 md:px-6">
+      <div class="card rounded-2xl p-6 md:p-10 grid md:grid-cols-[auto,1fr] items-center gap-6">
+        <div class="flex items-center gap-3 text-teal-300">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8">
+            <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.72 21.053c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd" />
+          </svg>
+          <h2 class="text-xl md:text-2xl font-bold">진심을 담기 위한 약속</h2>
+        </div>
+        <p class="text-gray-300 md:text-lg leading-relaxed">한 분 한 분에게 온전히 집중하기 위해, 하루에 단 <b>두 분</b>만 함께합니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="py-16">
+    <div class="max-w-7xl mx-auto px-4 md:px-6">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-white text-center">서비스 메뉴판</h2>
+      <p class="text-gray-400 text-center mt-3">경험을 <b>서사</b>로, 서사를 <b>합격</b>으로.</p>
+
+      <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- 1. 커피챗 -->
+        <div class="card rounded-2xl p-6 hover:-translate-y-1 hover:shadow-soft transition-all duration-300">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-r from-brand-500 to-sky-500 grid place-content-center text-white text-3xl">☕</div>
+            <h3 class="text-2xl font-bold">커피챗: 나만의 길 찾기</h3>
+          </div>
+          <p class="text-sky-400 font-extrabold text-xl mb-4">무료 · 30분</p>
+          <div class="border-y border-white/10 py-4 mb-4">
+            <p class="font-semibold text-gray-200 mb-2">추천 대상</p>
+            <ul class="space-y-2 text-gray-300">
+              <li>✔ 취업 준비의 첫걸음이 막막한 분</li>
+              <li>✔ 편하게 고민을 털어놓고 방향성 조언이 필요한 분</li>
+              <li>✔ 본격 컨설팅 전 케미를 먼저 확인하고 싶은 분</li>
+            </ul>
+          </div>
+          <ol class="list-decimal list-inside text-gray-300 space-y-2">
+            <li>1:1 온라인(음성/채팅) 고민 진단</li>
+            <li>현재 상황 분석 & 단기 목표 설정</li>
+            <li>맞춤형 취업 준비 로드맵 제시</li>
+          </ol>
+        </div>
+
+        <!-- 2. 자소서 (주력) -->
+        <div class="card rounded-2xl p-6 border-2 border-accent-500 hover:-translate-y-1 hover:shadow-soft transition-all duration-300 relative">
+          <span class="absolute -top-3 right-4 bg-accent-500 text-ink-900 font-bold px-3 py-1 rounded-full text-xs shadow-glow">BEST</span>
+          <div class="flex items-center gap-3 mb-3">
+            <!-- Diamond icon via simple path -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12" viewBox="0 0 24 24" fill="none">
+              <defs><linearGradient id="d" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F59E0B"/><stop offset="1" stop-color="#14B8A6"/></linearGradient></defs>
+              <path d="M7 3h10l4 5-9 13L3 8l4-5z" stroke="url(#d)" stroke-width="1.5" fill="rgba(245,158,11,0.1)"/>
+              <path d="M7 3l5 5 5-5" stroke="url(#d)" stroke-width="1.5"/>
+            </svg>
+            <h3 class="text-2xl font-bold">자소서 마스터피스: 나만의 서사 만들기</h3>
+          </div>
+          <p class="text-accent-500 font-extrabold text-xl mb-4">100,000원 · 기업당</p>
+
+          <!-- Stronger 24h emphasis inside card too -->
+          <div class="bg-white/5 rounded-xl p-4 mb-4 flex items-center gap-3">
+            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-accent-500 text-ink-900 font-extrabold text-xs shadow-badge">⏱️ 24시간 내 초안 발송</span>
+            <span class="text-xs text-gray-400">질문지·인터뷰 완료 후 기준</span>
+          </div>
+
+          <div class="border-y border-white/10 py-4 mb-4">
+            <p class="font-semibold text-gray-200 mb-2">추천 대상</p>
+            <ul class="space-y-2 text-gray-300">
+              <li>✔ 사소한 경험을 직무 역량으로 포장하고 싶은 분</li>
+              <li>✔ 지원 기업 맞춤형 ‘합격 자소서’가 필요한 분</li>
+              <li>✔ 기존 초안을 과감히 뒤엎고 싶은 분</li>
+            </ul>
+          </div>
+          <ol class="list-decimal list-inside text-gray-300 space-y-2">
+            <li>1:1 심층 인터뷰(60분)로 경험 재정의</li>
+            <li>직무 맞춤 스토리라인 설계 & 초안 완성</li>
+            <li>최종 제출 전까지 무제한 피드백</li>
+          </ol>
+          <div class="mt-4 text-xs bg-ink-800/60 border border-white/10 rounded-xl p-4">
+            <p class="font-bold text-gray-200 mb-1">⭐ (+50,000원) 경험 재구성 및 완성</p>
+            <p class="text-gray-400">막막했던 ‘재료’를 <b>맞춤형 성공 경험</b>으로 재발견하고, <b>완성된 문단</b>까지 만들어 드립니다.</p>
+          </div>
+        </div>
+
+        <!-- 3. 면접 -->
+        <div class="card rounded-2xl p-6 hover:-translate-y-1 hover:shadow-soft transition-all duration-300">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-r from-sky-500 to-brand-500 grid place-content-center text-white text-2xl">🎤</div>
+            <h3 class="text-2xl font-bold">면접 헬퍼: 나만의 목소리 찾기</h3>
+          </div>
+          <p class="text-sky-400 font-extrabold text-xl mb-4">50,000원 · 기업당</p>
+          <div class="border-y border-white/10 py-4 mb-4">
+            <p class="font-semibold text-gray-200 mb-2">추천 대상</p>
+            <ul class="space-y-2 text-gray-300">
+              <li>✔ 서류 합격 후 면접 준비가 막막한 분</li>
+              <li>✔ 돌발 질문에 머리가 하얘본 적이 있는 분</li>
+              <li>✔ 자신감 있는 태도와 논리적 답변이 필요한 분</li>
+            </ul>
+          </div>
+          <ol class="list-decimal list-inside text-gray-300 space-y-2">
+            <li>자소서 기반 맞춤형 예상 질문 & 스크립트 첨삭</li>
+            <li>실전 1:1 모의 면접(40분)</li>
+            <li>영상 피드백(말투·태도·시선 처리)</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS: prettier timeline -->
+  <section id="process" class="py-16">
+    <div class="max-w-7xl mx-auto px-4 md:px-6">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-white text-center">‘나만의 길’을 찾아가는 여정</h2>
+      <p class="text-gray-400 text-center mt-3">STEP 1 → STEP 4, 한눈에 보이는 프로세스</p>
+
+      <div class="mt-12">
+        <!-- Desktop: fancy rail with cards -->
+        <div class="hidden md:block relative">
+          <div class="step-rail h-1 rounded-full w-full absolute top-12"></div>
+          <div class="grid grid-cols-4 gap-6">
+            <!-- Step 1 -->
+            <div class="relative">
+              <div class="flex items-center gap-3">
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-r from-brand-500 to-sky-500 border border-white/10 grid place-content-center text-white shadow-glow">
+                  <span class="font-extrabold">1</span>
+                </div>
+                <div>
+                  <h3 class="font-semibold text-white">오픈채팅 문의</h3>
+                  <p class="text-xs text-gray-400">(여정의 시작)</p>
+                </div>
+              </div>
+              <div class="card mt-4 p-4 text-sm text-gray-300">
+                간단한 상황 공유 → 가장 빠른 슬롯 안내
+              </div>
+            </div>
+            <!-- Step 2 -->
+            <div class="relative">
+              <div class="flex items-center gap-3">
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-r from-brand-500 to-sky-500 border border-white/10 grid place-content-center text-white shadow-glow">
+                  <span class="font-extrabold">2</span>
+                </div>
+                <div>
+                  <h3 class="font-semibold text-white">1:1 심층 인터뷰</h3>
+                  <p class="text-xs text-gray-400">(서로를 알아가는 시간)</p>
+                </div>
+              </div>
+              <div class="card mt-4 p-4 text-sm text-gray-300">
+                경험 파헤치기 · 목표/제약 확인 · 로드맵 합의
+              </div>
+            </div>
+            <!-- Step 3 -->
+            <div class="relative">
+              <div class="flex items-center gap-3">
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-r from-brand-500 to-sky-500 border border-white/10 grid place-content-center text-white shadow-glow">
+                  <span class="font-extrabold">3</span>
+                </div>
+                <div>
+                  <h3 class="font-semibold text-white">맞춤 코칭 진행</h3>
+                  <p class="text-xs text-gray-400">(함께 걷는 시간)</p>
+                </div>
+              </div>
+              <div class="card mt-4 p-4 text-sm text-gray-300">
+                자소서 초안/면접 스크립트 제작 · 피드백 라운드
+              </div>
+            </div>
+            <!-- Step 4 -->
+            <div class="relative">
+              <div class="flex items-center gap-3">
+                <div class="w-14 h-14 rounded-2xl bg-gradient-to-r from-brand-500 to-sky-500 border border-white/10 grid place-content-center text-white shadow-glow">
+                  <span class="font-extrabold">4</span>
+                </div>
+                <div>
+                  <h3 class="font-semibold text-white">최종 결과물 & 피드백</h3>
+                  <p class="text-xs text-gray-400">(성장의 확인)</p>
+                </div>
+              </div>
+              <div class="card mt-4 p-4 text-sm text-gray-300">
+                제출용 다듬기 · 다음 단계 가이드 · Q&A
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile: stacked gradient cards -->
+        <div class="md:hidden grid gap-5">
+          <div class="card p-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-ink-800 border border-white/10 grid place-content-center text-white">1</div>
+              <div>
+                <h3 class="font-semibold text-white">오픈채팅 문의</h3>
+                <p class="text-xs text-gray-400">(여정의 시작)</p>
+              </div>
+            </div>
+            <p class="mt-2 text-sm text-gray-300">간단한 상황 공유 → 가장 빠른 슬롯 안내</p>
+          </div>
+          <div class="card p-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-ink-800 border border-white/10 grid place-content-center text-white">2</div>
+              <div>
+                <h3 class="font-semibold text-white">1:1 심층 인터뷰</h3>
+                <p class="text-xs text-gray-400">(서로를 알아가는 시간)</p>
+              </div>
+            </div>
+            <p class="mt-2 text-sm text-gray-300">경험 파헤치기 · 목표/제약 확인 · 로드맵 합의</p>
+          </div>
+          <div class="card p-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-ink-800 border border-white/10 grid place-content-center text-white">3</div>
+              <div>
+                <h3 class="font-semibold text-white">맞춤 코칭 진행</h3>
+                <p class="text-xs text-gray-400">(함께 걷는 시간)</p>
+              </div>
+            </div>
+            <p class="mt-2 text-sm text-gray-300">자소서 초안/면접 스크립트 제작 · 피드백 라운드</p>
+          </div>
+          <div class="card p-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-ink-800 border border-white/10 grid place-content-center text-white">4</div>
+              <div>
+                <h3 class="font-semibold text-white">최종 결과물 & 피드백</h3>
+                <p class="text-xs text-gray-400">(성장의 확인)</p>
+              </div>
+            </div>
+            <p class="mt-2 text-sm text-gray-300">제출용 다듬기 · 다음 단계 가이드 · Q&A</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta" class="py-20">
+    <div class="max-w-5xl mx-auto px-4 md:px-6 text-center">
+      <div class="card rounded-3xl p-8 md:p-12 shadow-glow">
+        <h2 class="text-3xl md:text-4xl font-extrabold">당신의 이야기가, 당신의 합격입니다.</h2>
+        <p class="mt-3 text-lg text-gray-300">
+          혼자 고민하지 마세요. <br class="hidden md:block">당신의 첫걸음을 함께하겠습니다.
+        </p>
+        <!-- Placeholder link; user will insert open chat URL -->
+        <a href="#" class="mt-8 inline-flex items-center gap-2 bg-gradient-to-r from-brand-500 to-sky-500 text-white font-bold px-7 py-4 rounded-2xl hover:shadow-soft ring-focus">
+          👇 든든한 헬퍼에게 지금 말걸기 👇
+        </a>
+        <p class="mt-4 text-xs text-gray-500">*사용자는 오픈채팅에 인사만 남기면 시작돼요.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-14">
+    <div class="max-w-4xl mx-auto px-4 md:px-6">
+      <h2 class="text-2xl md:text-3xl font-extrabold text-white">자주 묻는 질문</h2>
+      <div class="mt-6 space-y-3">
+        <details class="card rounded-xl p-4">
+          <summary class="marker:content-[''] cursor-pointer font-semibold text-white">커피챗은 정말 무료인가요?</summary>
+          <p class="mt-2 text-gray-300">네. 단순 상담이 아니라, 현재 상황/목표를 함께 정리하는 자리입니다. 부담 없이 신청하세요.</p>
+        </details>
+        <details class="card rounded-xl p-4">
+          <summary class="marker:content-[''] cursor-pointer font-semibold text-white">자소서 초안을 24시간 내에 받을 수 있나요?</summary>
+          <p class="mt-2 text-gray-300">사전 질문지 + 인터뷰 완료 기준으로 보통 24시간 내에 초안을 전달드립니다.</p>
+        </details>
+        <details class="card rounded-xl p-4">
+          <summary class="marker:content-[''] cursor-pointer font-semibold text-white">면접 코칭은 온라인인가요? 오프라인도 가능한가요?</summary>
+          <p class="mt-2 text-gray-300">기본은 온라인(Zoom/Meet) 진행입니다. 오프라인은 일정/지역에 따라 협의합니다.</p>
+        </details>
+        <details class="card rounded-xl p-4">
+          <summary class="marker:content-[''] cursor-pointer font-semibold text-white">서비스 후 추가 수정이나 질문이 가능한가요?</summary>
+          <p class="mt-2 text-gray-300">네. 자소서는 <b>무제한 피드백</b>, 면접은 세션 종료 후 <b>1회 추가 Q&amp;A</b>를 지원합니다.</p>
+        </details>
+        <details class="card rounded-xl p-4">
+          <summary class="marker:content-[''] cursor-pointer font-semibold text-white">환불/일정 변경 정책은 어떻게 되나요?</summary>
+          <p class="mt-2 text-gray-300">일정 변경은 최소 24시간 전에 알려주세요. 시작 전 취소는 전액 환불, 시작 후에는 환불이 어렵습니다.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-400">
+      <p>© <span id="year"></span> 당신만의 헬퍼. All rights reserved.</p>
+      <div class="flex items-center gap-5">
+        <a class="hover:text-white" href="#services">서비스</a>
+        <a class="hover:text-white" href="#process">진행 과정</a>
+        <a class="hover:text-white" href="#faq">FAQ</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
